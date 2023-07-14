@@ -65,4 +65,10 @@ services:
 
 volumes:
   prometheus_data:
+    driver: local
   grafana_data:
+    driver: local
+
+networks:
+  hpc-monitor:
+    driver: bridge
