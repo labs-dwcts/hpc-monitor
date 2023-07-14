@@ -10,6 +10,8 @@ services:
       - prometheus_data:/prometheus
       - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
     restart: unless-stopped
+    networks:
+      - hpc-monitor
 
   node-exporter:
     image: prom/node-exporter
@@ -26,6 +28,8 @@ services:
     restart: unless-stopped
     ports:
       - 9100:9100
+    networks:
+      - hpc-monitor
 
   nvidia_smi_exporter:
     image: utkuozdemir/nvidia_gpu_exporter:1.2.0
@@ -40,6 +44,8 @@ services:
       - /usr/bin/nvidia-smi:/usr/bin/nvidia-smi
     ports:
       - 9835:9835
+    networks:
+      - hpc-monitor
 
   grafana:
     image: grafana/grafana
@@ -54,6 +60,8 @@ services:
     restart: unless-stopped
     ports:
       - 3000:3000
+    networks:
+      - hpc-monitor
 
 volumes:
   prometheus_data:
