@@ -116,7 +116,7 @@ def configure_nvidia_runtime():
 
 
 def test_docker_nvidia_runtime():
-    run_command('sudo docker run --rm --gpus all nvidia/cuda:11.8.0-base-ubuntu20.04 nvidia-smi')
+    run_command('sudo docker run --rm --gpus all nvidia/cuda:12.0.0-base-ubuntu20.04 nvidia-smi')
 
 
 def run_docker_compose():
