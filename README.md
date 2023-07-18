@@ -34,4 +34,4 @@ sudo python3 install.py --driver-version 535.54.03 --server-ip YOUR_SERVER_IP
 스크립트 실행이 완료되면, Docker 프로세스 목록과 추가로 수행해야 할 단계들을 안내하는 메시지가 출력됩니다.
 
 웹브라우져에서 **`http://your_server_ip:3000`** 열어서 Grafana 대시보드를 확인할 수 있습니다.
-초기 ID와 비밀번호는 **`admin`**/**`dwcts`** 입니다.
+- 초기 ID와 비밀번호는 **`admin`**/**`dwcts`** 입니다.
