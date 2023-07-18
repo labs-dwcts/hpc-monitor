@@ -136,12 +136,12 @@ def complete_message():
     print(nvidia_smi_output)
     docker_ps_output = run_command('docker ps -a')
     print(docker_ps_output)
-    print("\n------------------------------------\n"
+    print("\n----------------------------------------------------------------------\n"
           "Add your user to the docker group.\n"
           "Run 'sudo usermod -aG docker $USER'\n"
           "Log out and log back in so that your group membership is re-evaluated.\n"
           "Run 'newgrp docker'\n"
-          "------------------------------------\n")
+          "----------------------------------------------------------------------\n")
 
 def check_tools(*tools):
     for tool in tools:
