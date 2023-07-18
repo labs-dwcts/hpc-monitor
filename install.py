@@ -7,6 +7,7 @@ import os
 import subprocess
 import logging
 import argparse
+import fileinput
 
 def check_if_root():
     if not os.geteuid() == 0:
@@ -146,7 +147,12 @@ def check_tools(*tools):
         except Exception as e:
             raise Exception(f"Required tool {tool} is not installed.")
 
-def main(driver_version):
+def replace_ip_in_file(file_path, ip):
+    with fileinput.FileInput(file_path, inplace=True, backup='.bak') as file:
+        for line in file:
+            print(line.replace('localhost', ip), end='')
+
+def main(server_ip, client_ip, driver_version):
     try:
         check_if_root()
         setup_logging()
@@ -156,6 +162,15 @@ def main(driver_version):
             logging.error("No NVIDIA GPU detected. Exiting.")
             print("No NVIDIA GPU detected. Exiting.")
             exit(1)
+
+        # Replace localhost with server_ip and client_ip in the configuration files
+        if server_ip:
+            replace_ip_in_file('./compose/prometheus/prometheus.yml', server_ip)
+            replace_ip_in_file('./compose/grafana/provisioning/datasources/prometheus.yml', server_ip)
+
+        if client_ip:
+            replace_ip_in_file('./compose/prometheus/prometheus.yml', client_ip)
+            replace_ip_in_file('./compose/grafana/provisioning/datasources/prometheus.yml', client_ip)
 
         print("Starting setup...")
         install_packages('build-essential')
@@ -190,5 +205,7 @@ def main(driver_version):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Script to setup NVIDIA GPU for HPC')
     parser.add_argument('--driver-version', type=str, default='535.54.03', help='NVIDIA driver version (default: 535.54.03)')
+    parser.add_argument('--server-ip', type=str, help='Server IP')
+    parser.add_argument('--client-ip', type=str, help='Client IP')
     args = parser.parse_args()
-    main(args.driver_version)
+    main(args.server_ip, args.client_ip, args.driver_version)
