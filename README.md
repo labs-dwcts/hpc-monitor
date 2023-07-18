@@ -26,7 +26,7 @@ cd hpc-monitor
 ```
 
 ```
-sudo python3 install.py --driver-version 535.54.03 --server-ip SERVER_IP
+sudo python3 install.py --driver-version 535.54.03 --server-ip YOUR_SERVER_IP
 ```
 
 **`your_server_ip`**에는 실제 서버의 IP 주소를 입력합니다. 이 옵션을 사용하면 설정 파일 내의 'localhost'가 해당 IP 주소로 변경 됩니다.
