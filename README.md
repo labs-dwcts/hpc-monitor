@@ -1,6 +1,7 @@
 # hpc-monitor
 HPC Node Monitor.
 
+## Installation
 ```
 git clone https://github.com/labs-dwcts/hpc-monitor.git
 ```
