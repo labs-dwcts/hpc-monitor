@@ -26,10 +26,10 @@ cd hpc-monitor
 ```
 
 ```
-sudo python3 install.py --driver-version 535.54.03 --server-ip SERVER_IP 또는 --client-ip CLIENT_IP
+sudo python3 install.py --driver-version 535.54.03 --server-ip SERVER_IP
 ```
 
-**`your_server_ip`**나 **`your_client_ip`**에는 실제 서버와 클라이언트의 IP 주소를 입력합니다. 이 옵션을 사용하면 설정 파일 내의 'localhost'가 해당 IP 주소로 변경 됩니다.
+**`your_server_ip`**에는 실제 서버의 IP 주소를 입력합니다. 이 옵션을 사용하면 설정 파일 내의 'localhost'가 해당 IP 주소로 변경 됩니다.
 
 스크립트 실행이 완료되면, Docker 프로세스 목록과 추가로 수행해야 할 단계들을 안내하는 메시지가 출력됩니다.
 
