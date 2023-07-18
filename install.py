@@ -125,8 +125,8 @@ def test_docker_nvidia_runtime():
 
 def run_docker_compose():
     print("Running Docker Compose...")
-    os.chdir("./compose")
-    run_command('docker compose up -d')
+    #os.chdir("./compose")
+    run_command('docker -f ./compose/docker-compose.yml compose up -d')
     print("Docker Compose run.")
 
 def complete_message():
