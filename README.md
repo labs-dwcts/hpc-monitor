@@ -1,6 +1,7 @@
 # **HPC NVIDIA GPU Monitoring Setup**
 
-이 프로젝트는 고성능 컴퓨팅(High-Performance Computing, HPC) 환경에서 NVIDIA GPU를 사용하고 모니터링하기 위한 도구를 설정하는 스크립트를 제공합니다. 스크립트는 필요한 패키지를 설치하고, Docker와 NVIDIA 리포지토리를 설정하며, NVIDIA 런타임을 구성하고, Docker Compose를 실행합니다.
+이 프로젝트는 고성능 컴퓨팅(High-Performance Computing, HPC) 환경에서 NVIDIA GPU를 사용하고 모니터링하기 위한 도구를 설정하는 스크립트를 제공 합니다. 스크립트는 필요한 패키지를 설치하고, NVIDIA GPOU 드라이버가 없을시에만 드라이버를 설치 합니다.
+그리고 Docker와 NVIDIA 리포지토리를 설정하며, NVIDIA 런타임을 구성하고, Docker Compose를 실행 합니다.
 
 ## **설치 요구사항**
 
