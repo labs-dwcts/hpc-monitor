@@ -131,6 +131,8 @@ def run_docker_compose():
 def complete_message():
     print("Listing all Docker processes...")
     print("\n------------------------------------\n")
+    nvidia_smi_output = run_command('nvidia-smi')
+    print(nvidia_smi_output)
     docker_ps_output = run_command('docker ps -a')
     print(docker_ps_output)
     print("\n------------------------------------\n"
