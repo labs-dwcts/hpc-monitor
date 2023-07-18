@@ -10,13 +10,13 @@
 
 ## **사용 방법**
 
-1. 이 프로젝트를 복제 합니다:
+1. 이 프로젝트를 복제 합니다.
 
 ```
 git clone https://github.com/your_username/hpc-monitor.git
 ```
 
-2. **`install.py`** 스크립트를 실행합니다:
+2. **`install.py`** 스크립트를 실행합니다.
 아래 옵션을 제공 합니다.
 usage: install.py [-h] [--driver-version DRIVER_VERSION] [--server-ip SERVER_IP] [--client-ip CLIENT_IP]
 
