@@ -125,9 +125,13 @@ def test_docker_nvidia_runtime():
 
 def run_docker_compose():
     print("Running Docker Compose...")
-    #os.chdir("./compose")
     run_command('docker compose -f ./compose/docker-compose.yml up -d')
     print("Docker Compose run.")
+
+def uninstall_containers():
+    print("Uninstalling containers...")
+    run_command('docker compose -f ./compose/docker-compose.yml down')
+    print("Containers uninstalled.")
 
 def complete_message():
     print("Listing all Docker processes...")
@@ -155,18 +159,21 @@ def replace_ip_in_file(file_path, ip):
         for line in file:
             print(line.replace('localhost', ip), end='')
 
-def main(server_ip, client_ip, driver_version):
+def main(server_ip, client_ip, driver_version, uninstall):
     try:
         check_if_root()
         setup_logging()
         check_tools('curl', 'wget', 'lspci')
+
+        if uninstall:
+            uninstall_containers()
+            exit(0)
 
         if not check_nvidia_gpu():
             logging.error("No NVIDIA GPU detected. Exiting.")
             print("No NVIDIA GPU detected. Exiting.")
             exit(1)
 
-        # Replace localhost with server_ip and client_ip in the configuration files
         if server_ip:
             replace_ip_in_file('./compose/prometheus/prometheus.yml', server_ip)
             replace_ip_in_file('./compose/grafana/provisioning/datasources/prometheus.yml', server_ip)
@@ -210,5 +217,6 @@ if __name__ == "__main__":
     parser.add_argument('--driver-version', type=str, default='535.54.03', help='NVIDIA driver version (default: 535.54.03)')
     parser.add_argument('--server-ip', type=str, help='Server IP')
     parser.add_argument('--client-ip', type=str, help='Client IP')
+    parser.add_argument('--uninstall', action='store_true', help='Uninstall the containers')
     args = parser.parse_args()
-    main(args.server_ip, args.client_ip, args.driver_version)
+    main(args.server_ip, args.client_ip, args.driver_version, args.uninstall)
