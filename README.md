@@ -22,6 +22,9 @@ usage: install.py [-h] [--driver-version DRIVER_VERSION] [--server-ip SERVER_IP]
 
 ```
 cd hpc-monitor
+```
+
+```
 sudo python3 install.py --driver-version 535.54.03 --server-ip SERVER_IP 또는 --client-ip CLIENT_IP
 ```
 
