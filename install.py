@@ -145,6 +145,8 @@ def complete_message():
           "Run 'sudo usermod -aG docker $USER'\n"
           "Log out and log back in so that your group membership is re-evaluated.\n"
           "Run 'newgrp docker'\n"
+          "----------------------------------------------------------------------\n"
+          "Multi-GPU CUDA stress test 'docker run --gpus all --rm oguzpastirmaci/gpu-burn 60'\n"
           "----------------------------------------------------------------------\n")
 
 def check_tools(*tools):
@@ -175,7 +177,7 @@ def main(server_ip, client_ip, driver_version, uninstall):
     try:
         check_if_root()
         setup_logging()
-        check_tools('curl', 'wget', 'lspci')
+        check_tools('curl', 'wget', 'lspci','stress')
 
         if uninstall:
             uninstall_containers()
