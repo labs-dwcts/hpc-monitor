@@ -48,15 +48,14 @@ services:
       - hpc-monitor
 
   dcgm_exporter:
-    image: nvcr.io/nvidia/k8s/dcgm-exporter:2.2.9-2.4.0-rc.2-ubuntu20.04
-    container_name: dcgm_exporter
-    ports:
-      - 9400:9400
+    image: nvcr.io/nvidia/k8s/dcgm-exporter:${DCGM_EXPORTER_IMAGE_TAG}
+    restart: unless-stopped
     environment:
       - DCGM_EXPORTER_NO_HOSTNAME=1
     cap_add:
       - SYS_ADMIN
-    restart: unless-stopped
+    ports:
+      - "${DCGM_EXPORTER_HOST_PORT}:9400"
     networks:
       - hpc-monitor
 
