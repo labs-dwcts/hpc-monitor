@@ -48,6 +48,7 @@ services:
       - hpc-monitor
 
   dcgm_exporter:
+    container_name: nvidia_dcgm_exporter
     image: nvcr.io/nvidia/k8s/dcgm-exporter:3.1.8-3.1.5-ubuntu20.04
     restart: unless-stopped
     environment:
