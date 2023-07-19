@@ -12,7 +12,7 @@ scrape_configs:
       - targets: ['localhost:9090']
 
   - job_name: 'node'
-    scrape_interval: 10s
+    scrape_interval: 5s
     static_configs:
       - targets: ['localhost:9100']
 
@@ -20,6 +20,11 @@ scrape_configs:
     scrape_interval: 5s
     static_configs:
       - targets: ['localhost:9835']
+
+  - job_name: 'dcgm_exporter'
+    scrape_interval: 5s
+    static_configs:
+      - targets: ['localhost:9400']
 
   - job_name: 'grafana'
     scrape_interval: 15s
