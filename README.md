@@ -38,4 +38,4 @@ sudo python3 install.py --driver-version 535.54.03 --server-ip YOUR_SERVER_IP
 **`YOUR_SERVER_IP`**에는 실제 서버의 IP 주소를 입력 합니다.
 
 웹브라우져에서 **`http://your_server_ip:3000`** 열어서 대시보드를 확인할 수 있습니다.
-- 초기 ID와 비밀번호는 **`admin`**/**`dwcts`** 입니다.
+- 초기 ID와 비밀번호는 **`admin`**/**`admin`** 입니다.
