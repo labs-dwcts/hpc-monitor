@@ -159,6 +159,18 @@ def replace_ip_in_file(file_path, ip):
         for line in file:
             print(line.replace('localhost', ip), end='')
 
+def replace_endpoint_in_env(file_path, ip):
+    with open(file_path, 'r') as file:
+        lines = file.readlines()
+    with open(file_path, 'w') as file:
+        for line in lines:
+            if line.startswith('WA_PROMETHEUS_ENDPOINT'):
+                file.write(f'WA_PROMETHEUS_ENDPOINT=http://{ip}:9090\n')
+            elif line.startswith('GF_SERVER_ROOT_URL'):
+                file.write(f'GF_SERVER_ROOT_URL=http://{ip}:3000\n')
+            else:
+                file.write(line)
+
 def main(server_ip, client_ip, driver_version, uninstall):
     try:
         check_if_root()
@@ -177,10 +189,7 @@ def main(server_ip, client_ip, driver_version, uninstall):
         if server_ip:
             replace_ip_in_file('./compose/prometheus/prometheus.yml', server_ip)
             replace_ip_in_file('./compose/grafana/provisioning/datasources/prometheus.yml', server_ip)
-
-        if client_ip:
-            replace_ip_in_file('./compose/prometheus/prometheus.yml', client_ip)
-            replace_ip_in_file('./compose/grafana/provisioning/datasources/prometheus.yml', client_ip)
+            replace_endpoint_in_env('./compose/.env', server_ip)
 
         print("Starting setup...")
         install_packages('build-essential')
