@@ -177,7 +177,7 @@ def main(server_ip, client_ip, driver_version, uninstall):
     try:
         check_if_root()
         setup_logging()
-        check_tools('curl', 'wget', 'lspci','stress')
+        check_tools('curl', 'wget', 'lspci')
 
         if uninstall:
             uninstall_containers()
@@ -194,7 +194,7 @@ def main(server_ip, client_ip, driver_version, uninstall):
             replace_endpoint_in_env('./compose/.env', server_ip)
 
         print("Starting setup...")
-        install_packages('build-essential')
+        install_packages('build-essential','stress')
 
         if not check_nvidia_smi():
             download_nvidia_driver(driver_version)
