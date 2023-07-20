@@ -16,7 +16,7 @@
 git clone https://github.com/your_username/hpc-monitor.git
 ```
 
-1. 설치전 이메일 알림이 필요하다면 /compose/.env 환경 설정을 열고 SMTP 서버, 이메일 주소, 비밀번호를 설정 합니다.
+설치전 이메일 알림이 필요하다면 /compose/.env 환경 설정을 열고 SMTP 서버, 이메일 주소, 비밀번호를 설정 합니다.
 
 ```yaml
 GF_SECURITY_ADMIN_USER=admin
@@ -32,7 +32,7 @@ GF_SMTP_PASSWORD=yourpassword # 비밀번호
 GF_SMTP_SKIP_VERIFY=1
 ```
 
-1. **`install.py`** 스크립트는 다음과 같은 옵션을 제공 합니다.
+**`install.py`** 스크립트는 다음과 같은 옵션을 제공 합니다.
 
 ```bash
 install.py [-h]
@@ -42,13 +42,13 @@ install.py [-h]
            [--uninstall]
 ```
 
-1. 설치를 시작 합니다.
+2. 설치를 시작 합니다.
 
 ```bash
 cd hpc-monitor
 ```
 
-1. 설치 (예)
+설치 (예)
 
 —driver-version을 지정하지 않으면 535.54.03 버전 (기본값) 으로 설치 됩니다.
 
@@ -58,7 +58,7 @@ cd hpc-monitor
 sudo python install.py --driver-version 535.54.03 --server-ip YOUR_SERVER_IP
 ```
 
-1. 모니터 대시보드 접속
+3. 모니터 대시보드 접속
 
 웹브라우저에서 **`http://your_server_ip:3000`** 열어서 대시보드를 확인할 수 있습니다.
 
