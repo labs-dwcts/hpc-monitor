@@ -133,18 +133,19 @@ def uninstall_containers():
     run_command('docker compose -f ./compose/docker-compose.yml down')
     print("Containers uninstalled.")
 
-def complete_message():
-    print("Listing all Docker processes...")
+def complete_message():    
     print("\n------------------------------------\n")
     nvidia_smi_output = run_command('nvidia-smi')
     print(nvidia_smi_output)
+    print("\n------------------------------------\n")
+    print("Listing all Docker processes...")
     docker_ps_output = run_command('docker ps -a')
     print(docker_ps_output)
     print("\n----------------------------------------------------------------------\n"
           "Add your user to the docker group.\n"
           "Run 'sudo usermod -aG docker $USER'\n"
           "Log out and log back in so that your group membership is re-evaluated.\n"
-          "Run 'newgrp docker'\n"
+          "Run 'newgrp docker'\n\n"
           "----------------------------------------------------------------------\n"
           "Multi-GPU CUDA stress test 'docker run --gpus all --rm oguzpastirmaci/gpu-burn 60'\n"
           "----------------------------------------------------------------------\n")

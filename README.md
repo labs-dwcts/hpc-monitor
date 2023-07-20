@@ -5,12 +5,12 @@
 ## **설치 요구사항**
 
 - NVIDIA GPU가 설치된 Ubuntu 시스템
-- **`curl`**, **`wget`**, **`lspci`** 등의 필수 도구가 설치된 시스템
+- **`curl`**, **`wget`**, 등의 필수 도구가 설치된 시스템
 - 관리자 권한
 
 ## **사용 방법**
 
-1. 이 프로젝트를 복제 합니다.
+1. 이 저장소를 복제 합니다.
 
 ```
 git clone https://github.com/your_username/hpc-monitor.git
