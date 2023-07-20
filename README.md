@@ -16,7 +16,7 @@
 git clone https://github.com/your_username/hpc-monitor.git
 ```
 
-설치전 이메일 알림이 필요하다면 /compose/.env 환경 설정을 열고 SMTP 서버, 이메일 주소, 비밀번호를 설정 합니다.
+설치전 이메일 알림이 필요하다면 /compose/.env 환경 설정을 열고 SMTP 서버, 이메일 주소, 비밀번호를 설정해야 합니다.
 
 ```yaml
 GF_SECURITY_ADMIN_USER=admin
