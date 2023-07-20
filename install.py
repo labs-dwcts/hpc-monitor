@@ -145,9 +145,13 @@ def complete_message():
           "Add your user to the docker group.\n"
           "Run 'sudo usermod -aG docker $USER'\n"
           "Log out and log back in so that your group membership is re-evaluated.\n"
-          "Run 'newgrp docker'\n\n"
+          "Run 'newgrp docker'\n"
+          "----------------------------------------------------------------------\n\n"
           "----------------------------------------------------------------------\n"
-          "Multi-GPU CUDA stress test 'docker run --gpus all --rm oguzpastirmaci/gpu-burn 60'\n"
+          "Stress Test\n"
+          "----------------------------------------------------------------------\n"
+          "Multi-GPU CUDA stress test: 'docker run --gpus all --rm oguzpastirmaci/gpu-burn 60'\n"
+          "CPU stress test: 'stress --cpu `nproc` --vm `nproc` --vm-bytes 1GB --io `nproc` --hdd `nproc` --hdd-bytes 1GB --timeout 600s'\n"
           "----------------------------------------------------------------------\n")
 
 def check_tools(*tools):
