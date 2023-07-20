@@ -134,11 +134,12 @@ def uninstall_containers():
     print("Containers uninstalled.")
 
 def complete_message():    
-    print("\n------------------------------------\n")
+    print("\n----------------------------------------------------------------------\n")
     nvidia_smi_output = run_command('nvidia-smi')
     print(nvidia_smi_output)
-    print("\n------------------------------------\n")
+    print("\n----------------------------------------------------------------------\n")
     print("Listing all Docker processes...")
+    print("\n----------------------------------------------------------------------\n")
     docker_ps_output = run_command('docker ps -a')
     print(docker_ps_output)
     print("\n----------------------------------------------------------------------\n"
@@ -151,6 +152,7 @@ def complete_message():
           "Stress Test\n"
           "----------------------------------------------------------------------\n"
           "Multi-GPU CUDA stress test: 'docker run --gpus all --rm oguzpastirmaci/gpu-burn 60'\n"
+          "\n----------------------------------------------------------------------\n"
           "CPU stress test: 'stress --cpu `nproc` --vm `nproc` --vm-bytes 1GB --io `nproc` --hdd `nproc` --hdd-bytes 1GB --timeout 600s'\n"
           "----------------------------------------------------------------------\n")
 
