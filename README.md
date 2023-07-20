@@ -5,7 +5,7 @@
 ## **설치 요구사항**
 
 - NVIDIA GPU가 설치된 Ubuntu 시스템
-- **`curl`**, **`wget`**, 등의 필수 도구가 설치된 시스템
+- **`curl`**, **`wget`** 등의 필수 도구가 설치된 시스템
 - 관리자 권한
 
 ## **사용 방법**
@@ -30,12 +30,14 @@ install.py [-h]
 cd hpc-monitor
 ```
 
-예)
+설치 예제)
+
 ```
-sudo python3 install.py --driver-version 535.54.03 --server-ip YOUR_SERVER_IP
+sudo python install.py --driver-version 535.54.03 --server-ip YOUR_SERVER_IP
 ```
 
-**`YOUR_SERVER_IP`**에는 실제 서버의 IP 주소를 입력 합니다.
+- `YOUR_SERVER_IP`에는 실제 서버의 IP 주소를 입력 합니다.
 
-웹브라우져에서 **`http://your_server_ip:3000`** 열어서 대시보드를 확인할 수 있습니다.
-- 초기 ID와 비밀번호는 **`admin`**/**`admin`** 입니다.
+웹브라우저에서 **`http://your_server_ip:3000`** 열어서 대시보드를 확인할 수 있습니다.
+
+- 초기 ID와 비밀번호는 *`admin`*/*`admin`* 입니다.
