@@ -94,7 +94,7 @@
       {
         "datasource": {
           "type": "prometheus",
-          "uid": "${DS_PROMETHEUS}"
+          "uid": "Prometheus"
         },
         "fieldConfig": {
           "defaults": {
@@ -162,7 +162,7 @@
           {
             "datasource": {
               "type": "prometheus",
-              "uid": "${DS_PROMETHEUS}"
+              "uid": "Prometheus"
             },
             "expr": "up{job=\"grafana\"}",
             "format": "time_series",
@@ -178,7 +178,7 @@
       {
         "datasource": {
           "type": "prometheus",
-          "uid": "${DS_PROMETHEUS}"
+          "uid": "Prometheus"
         },
         "fieldConfig": {
           "defaults": {
@@ -242,7 +242,7 @@
           {
             "datasource": {
               "type": "prometheus",
-              "uid": "${DS_PROMETHEUS}"
+              "uid": "Prometheus"
             },
             "expr": "grafana_stat_totals_dashboard",
             "format": "time_series",
@@ -258,7 +258,7 @@
       {
         "datasource": {
           "type": "prometheus",
-          "uid": "${DS_PROMETHEUS}"
+          "uid": "Prometheus"
         },
         "fieldConfig": {
           "defaults": {
@@ -322,7 +322,7 @@
           {
             "datasource": {
               "type": "prometheus",
-              "uid": "${DS_PROMETHEUS}"
+              "uid": "Prometheus"
             },
             "expr": "grafana_stat_total_users",
             "format": "time_series",
@@ -338,7 +338,7 @@
       {
         "datasource": {
           "type": "prometheus",
-          "uid": "${DS_PROMETHEUS}"
+          "uid": "Prometheus"
         },
         "fieldConfig": {
           "defaults": {
@@ -402,7 +402,7 @@
           {
             "datasource": {
               "type": "prometheus",
-              "uid": "${DS_PROMETHEUS}"
+              "uid": "Prometheus"
             },
             "expr": "grafana_stat_total_playlists",
             "format": "time_series",
@@ -419,7 +419,7 @@
         "columns": [],
         "datasource": {
           "type": "prometheus",
-          "uid": "${DS_PROMETHEUS}"
+          "uid": "Prometheus"
         },
         "fontSize": "100%",
         "gridPos": {
@@ -464,7 +464,7 @@
           {
             "datasource": {
               "type": "prometheus",
-              "uid": "${DS_PROMETHEUS}"
+              "uid": "Prometheus"
             },
             "expr": "topk(1, grafana_info or grafana_build_info)",
             "format": "time_series",
@@ -482,7 +482,7 @@
       {
         "datasource": {
           "type": "prometheus",
-          "uid": "${DS_PROMETHEUS}"
+          "uid": "Prometheus"
         },
         "fieldConfig": {
           "defaults": {
@@ -594,7 +594,7 @@
           {
             "datasource": {
               "type": "prometheus",
-              "uid": "${DS_PROMETHEUS}"
+              "uid": "Prometheus"
             },
             "expr": "sum by (statuscode) (irate(http_request_total{job='grafana'}[5m]))",
             "format": "time_series",
@@ -611,7 +611,7 @@
       {
         "datasource": {
           "type": "prometheus",
-          "uid": "${DS_PROMETHEUS}"
+          "uid": "Prometheus"
         },
         "fieldConfig": {
           "defaults": {
@@ -723,7 +723,7 @@
           {
             "datasource": {
               "type": "prometheus",
-              "uid": "${DS_PROMETHEUS}"
+              "uid": "Prometheus"
             },
             "expr": "sum(irate(grafana_api_response_status_total[5m]))",
             "format": "time_series",
@@ -735,7 +735,7 @@
           {
             "datasource": {
               "type": "prometheus",
-              "uid": "${DS_PROMETHEUS}"
+              "uid": "Prometheus"
             },
             "expr": "sum(irate(grafana_proxy_response_status_total[5m]))",
             "format": "time_series",
@@ -747,7 +747,7 @@
           {
             "datasource": {
               "type": "prometheus",
-              "uid": "${DS_PROMETHEUS}"
+              "uid": "Prometheus"
             },
             "expr": "sum(irate(grafana_page_response_status_total[5m]))",
             "format": "time_series",
@@ -764,7 +764,7 @@
         "columns": [],
         "datasource": {
           "type": "prometheus",
-          "uid": "${DS_PROMETHEUS}"
+          "uid": "Prometheus"
         },
         "fontSize": "100%",
         "gridPos": {
@@ -810,7 +810,7 @@
           {
             "datasource": {
               "type": "prometheus",
-              "uid": "${DS_PROMETHEUS}"
+              "uid": "Prometheus"
             },
             "expr": "sort(topk(8, sum by (handler) (http_request_total{job=\"grafana\"})))",
             "format": "time_series",
@@ -828,7 +828,7 @@
       {
         "datasource": {
           "type": "prometheus",
-          "uid": "${DS_PROMETHEUS}"
+          "uid": "Prometheus"
         },
         "fieldConfig": {
           "defaults": {
@@ -940,7 +940,7 @@
           {
             "datasource": {
               "type": "prometheus",
-              "uid": "${DS_PROMETHEUS}"
+              "uid": "Prometheus"
             },
             "expr": "increase(grafana_alerting_active_alerts[1m])",
             "format": "time_series",
@@ -956,7 +956,7 @@
       {
         "datasource": {
           "type": "prometheus",
-          "uid": "${DS_PROMETHEUS}"
+          "uid": "Prometheus"
         },
         "fieldConfig": {
           "defaults": {
@@ -1098,7 +1098,7 @@
           {
             "datasource": {
               "type": "prometheus",
-              "uid": "${DS_PROMETHEUS}"
+              "uid": "Prometheus"
             },
             "expr": " sum (ALERTS)",
             "format": "time_series",
@@ -1114,7 +1114,7 @@
       {
         "datasource": {
           "type": "prometheus",
-          "uid": "${DS_PROMETHEUS}"
+          "uid": "Prometheus"
         },
         "description": "Aggregated over all Grafana nodes.",
         "fieldConfig": {
@@ -1245,7 +1245,7 @@
           {
             "datasource": {
               "type": "prometheus",
-              "uid": "${DS_PROMETHEUS}"
+              "uid": "Prometheus"
             },
             "expr": "sum(go_goroutines{job=\"grafana\"})",
             "format": "time_series",
@@ -1260,7 +1260,7 @@
           {
             "datasource": {
               "type": "prometheus",
-              "uid": "${DS_PROMETHEUS}"
+              "uid": "Prometheus"
             },
             "expr": "sum(process_resident_memory_bytes{job=\"grafana\"})",
             "format": "time_series",
