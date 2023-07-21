@@ -151,9 +151,11 @@ def complete_message():
           "----------------------------------------------------------------------\n"
           "Stress Test\n"
           "----------------------------------------------------------------------\n"
-          "Multi-GPU CUDA stress test: 'docker run --gpus all --rm oguzpastirmaci/gpu-burn 60'\n"
+          "Multi-GPU CUDA stress test\n"
+          "$ docker run --gpus all --rm oguzpastirmaci/gpu-burn 60\n"
           "----------------------------------------------------------------------\n"
-          "CPU stress test: 'stress --cpu `nproc` --vm `nproc` --vm-bytes 1GB --io `nproc` --hdd `nproc` --hdd-bytes 1GB --timeout 600s'\n"
+          "CPU stress test\n"
+          "$ stress --cpu `nproc` --vm `nproc` --vm-bytes 1GB --io `nproc` --hdd `nproc` --hdd-bytes 1GB --timeout 600s'\n"
           "----------------------------------------------------------------------\n")
 
 def check_tools(*tools):
