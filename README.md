@@ -38,7 +38,6 @@ GF_SMTP_SKIP_VERIFY=1
 install.py [-h]
            [--driver-version DRIVER_VERSION]
            [--server-ip SERVER_IP]
-           [--client-ip CLIENT_IP]
            [--uninstall]
 ```
 
