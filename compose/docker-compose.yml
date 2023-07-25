@@ -83,6 +83,7 @@ services:
       - GF_SMTP_USER=${GF_SMTP_USER}
       - GF_SMTP_PASSWORD=${GF_SMTP_PASSWORD}
       - GF_SMTP_SKIP_VERIFY=${GF_SMTP_SKIP_VERIFY}
+      - GF_DASHBOARDS_DEFAULT_HOME_DASHBOARD_PATH=${GF_SMTP_SKIP_VERIFY}
     depends_on:
       - prometheus
     volumes:
