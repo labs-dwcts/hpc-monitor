@@ -183,7 +183,7 @@ def replace_endpoint_in_env(file_path, ip):
                 file.write(line)
 
 def modify_grafana_container():
-    print("Modifying Grafana container...")
+    print("Modifying container...")
     
     replacements = [
         ('AppTitle="Grafana"', 'AppTitle="DACOMSYSTEM"'),
