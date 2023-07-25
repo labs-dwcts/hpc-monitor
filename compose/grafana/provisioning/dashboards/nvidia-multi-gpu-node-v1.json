@@ -1,42 +1,42 @@
 {
-    "__inputs": [
-      {
-        "name": "DS_PROMETHEUS",
-        "label": "Prometheus",
-        "description": "",
-        "type": "datasource",
-        "pluginId": "prometheus",
-        "pluginName": "Prometheus"
-      }
-    ],
-    "__elements": {},
-    "__requires": [
-      {
-        "type": "panel",
-        "id": "gauge",
-        "name": "Gauge",
-        "version": ""
-      },
-      {
-        "type": "grafana",
-        "id": "grafana",
-        "name": "Grafana",
-        "version": "10.0.2"
-      },
-      {
-        "type": "panel",
-        "id": "graph",
-        "name": "Graph (old)",
-        "version": ""
-      },
-      {
-        "type": "datasource",
-        "id": "prometheus",
-        "name": "Prometheus",
-        "version": "1.0.0"
-      }
-    ],
-    "annotations": {
+  "__inputs": [
+    {
+      "name": "DS_PROMETHEUS",
+      "label": "Prometheus",
+      "description": "",
+      "type": "datasource",
+      "pluginId": "prometheus",
+      "pluginName": "Prometheus"
+    }
+  ],
+  "__elements": {},
+  "__requires": [
+    {
+      "type": "panel",
+      "id": "gauge",
+      "name": "Gauge",
+      "version": ""
+    },
+    {
+      "type": "grafana",
+      "id": "grafana",
+      "name": "Grafana",
+      "version": "10.0.2"
+    },
+    {
+      "type": "panel",
+      "id": "graph",
+      "name": "Graph (old)",
+      "version": ""
+    },
+    {
+      "type": "datasource",
+      "id": "prometheus",
+      "name": "Prometheus",
+      "version": "1.0.0"
+    }
+  ],
+  "annotations": {
       "list": [
         {
           "$$hashKey": "object:192",
@@ -58,7 +58,6 @@
     "fiscalYearStartMonth": 0,
     "gnetId": 12239,
     "graphTooltip": 0,
-    "id": null,
     "links": [],
     "liveNow": false,
     "panels": [
@@ -505,8 +504,8 @@
         "gridPos": {
           "h": 8,
           "w": 12,
-          "x": 0,
-          "y": 24
+          "x": 12,
+          "y": 16
         },
         "hiddenSeries": false,
         "id": 6,
@@ -589,13 +588,19 @@
           "type": "prometheus",
           "uid": "Prometheus"
         },
+        "fieldConfig": {
+          "defaults": {
+            "links": []
+          },
+          "overrides": []
+        },
         "fill": 1,
         "fillGradient": 0,
         "gridPos": {
           "h": 8,
           "w": 12,
           "x": 0,
-          "y": 32
+          "y": 24
         },
         "hiddenSeries": false,
         "id": 4,
@@ -614,9 +619,10 @@
         "linewidth": 2,
         "nullPointMode": "null",
         "options": {
-          "dataLinks": []
+          "alertThreshold": true
         },
         "percentage": false,
+        "pluginVersion": "10.0.2",
         "pointradius": 2,
         "points": false,
         "renderer": "flot",
@@ -677,13 +683,19 @@
           "type": "prometheus",
           "uid": "Prometheus"
         },
+        "fieldConfig": {
+          "defaults": {
+            "links": []
+          },
+          "overrides": []
+        },
         "fill": 1,
         "fillGradient": 0,
         "gridPos": {
           "h": 8,
           "w": 12,
-          "x": 0,
-          "y": 40
+          "x": 12,
+          "y": 24
         },
         "hiddenSeries": false,
         "id": 18,
@@ -701,9 +713,10 @@
         "linewidth": 2,
         "nullPointMode": "null",
         "options": {
-          "dataLinks": []
+          "alertThreshold": true
         },
         "percentage": false,
+        "pluginVersion": "10.0.2",
         "pointradius": 2,
         "points": false,
         "renderer": "flot",
@@ -765,7 +778,11 @@
     "templating": {
       "list": [
         {
-          "current": {},
+          "current": {
+            "selected": false,
+            "text": "192.168.207.1:9400",
+            "value": "192.168.207.1:9400"
+          },
           "datasource": {
             "type": "prometheus",
             "uid": "Prometheus"
@@ -787,7 +804,11 @@
           "useTags": false
         },
         {
-          "current": {},
+          "current": {
+            "selected": false,
+            "text": "All",
+            "value": "$__all"
+          },
           "datasource": {
             "type": "prometheus",
             "uid": "Prometheus"
@@ -831,6 +852,6 @@
     "timezone": "",
     "title": "NVIDIA Multi GPU Node Dashboard",
     "uid": "Oxed_c6Wz",
-    "version": 5,
+    "version": 1,
     "weekStart": ""
   }
