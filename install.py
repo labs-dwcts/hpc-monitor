@@ -182,6 +182,25 @@ def replace_endpoint_in_env(file_path, ip):
             else:
                 file.write(line)
 
+def modify_grafana_container():
+    print("Modifying Grafana container...")
+    
+    replacements = [
+        ('AppTitle="Grafana"', 'AppTitle="DACOMSYSTEM"'),
+        ('LoginTitle="Welcome to Grafana"', 'LoginTitle="Welcome to DACOMSYSTEM"'),
+        ('[{target:"_blank",id:"documentation".*grafana_footer"}]', '[]'),
+        ('({target:"_blank",id:"license",.*licenseUrl})', '()'),
+        ('({target:"_blank",id:"version",.*CHANGELOG.md":void 0})', '()'),
+        ('({target:"_blank",id:"updateVersion",.*grafana_footer"})', '()'),
+        ('..createElement(....,{className:.,onClick:.,iconOnly:!0,icon:"rss","aria-label":"News"})', 'null'),
+    ]
+    
+    for old, new in replacements:
+        command = f'docker exec -it -u 0 grafana find /usr/share/grafana/public/build/ -name "*.js" -exec sed -i \'s|{old}|{new}|g\' {{}} \\;'
+        run_command(command)
+    
+    print("Grafana container modified.")
+
 def main(server_ip, client_ip, driver_version, uninstall):
     try:
         check_if_root()
@@ -223,7 +242,9 @@ def main(server_ip, client_ip, driver_version, uninstall):
         test_docker_nvidia_runtime()
         run_docker_compose()
 
+        modify_grafana_container()
         print("Setup completed.")
+        
         complete_message()
 
     except Exception as e:
