@@ -155,7 +155,7 @@ def complete_message():
           "$ docker run --gpus all --rm oguzpastirmaci/gpu-burn 60\n"
           "----------------------------------------------------------------------\n"
           "CPU stress test\n"
-          "$ stress --cpu `nproc` --vm `nproc` --vm-bytes 1GB --io `nproc` --hdd `nproc` --hdd-bytes 1GB --timeout 60s'\n"
+          "$ stress --cpu `nproc` --vm `nproc` --vm-bytes 1GB --io `nproc` --hdd `nproc` --hdd-bytes 1GB --timeout 60s\n"
           "----------------------------------------------------------------------\n")
 
 def check_tools(*tools):
