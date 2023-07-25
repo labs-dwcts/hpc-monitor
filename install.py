@@ -183,19 +183,29 @@ def replace_endpoint_in_env(file_path, ip):
                 file.write(line)
 
 def modify_grafana_container():
-    print("Modifying container...")
+    print("Modifying Container...")
     
-    commands = [
-        'docker exec -it -u 0 grafana find /usr/share/grafana/public/build/ -name "*.js" -exec sed -i \'s|AppTitle="Grafana"|AppTitle="DACOMSYSTEM"|g\' {} \;',
-        'docker exec -it -u 0 grafana find /usr/share/grafana/public/build/ -name "*.js" -exec sed -i \'s|LoginTitle="Welcome to Grafana"|LoginTitle="Welcome to DACOMSYSTEM"|g\' {} \;',
-        'docker exec -it -u 0 grafana find /usr/share/grafana/public/build/ -name "*.js" -exec sed -i \'s|\[{target:"_blank",id:"documentation".*grafana_footer"}\]|\[\]|g\' {} \;',
-        'docker exec -it -u 0 grafana find /usr/share/grafana/public/build/ -name "*.js" -exec sed -i \'s|({target:"_blank",id:"license",.*licenseUrl})|()|g\' {} \;',
-        'docker exec -it -u 0 grafana find /usr/share/grafana/public/build/ -name "*.js" -exec sed -i \'s|({target:"_blank",id:"version",.*CHANGELOG.md":void 0})|()|g\' {} \;',
-        'docker exec -it -u 0 grafana find /usr/share/grafana/public/build/ -name "*.js" -exec sed -i \'s|({target:"_blank",id:"updateVersion",.*grafana_footer"})|()|g\' {} \;',
-        'docker exec -it -u 0 grafana find /usr/share/grafana/public/build/ -name "*.js" -exec sed -i \'s|..createElement(....,{className:.,onClick:.,iconOnly:!0,icon:"rss","aria-label":"News"})|null|g\' {} \;'
+    base_command = 'docker exec -u 0 grafana find /usr/share/grafana/public/build/ -name "*.js" -exec sed -i'
+    replacements = [
+        # Update App Title
+        ('\'s|AppTitle="Grafana"|AppTitle="DACOMSYSTEM"|g\'', 'Updating App Title'),
+        # Update Login Title
+        ('\'s|LoginTitle="Welcome to Grafana"|LoginTitle="Welcome to DACOMSYSTEM"|g\'', 'Updating Login Title'),
+        # Remove Documentation, Support, Community in the Footer
+        ('\'s|\\[{target:"_blank",id:"documentation".*grafana_footer"}\\]|\\[\\]|g\'', 'Removing Documentation, Support, Community in the Footer'),
+        # Remove Edition in the Footer
+        ('\'s|\\({target:"_blank",id:"license",.*licenseUrl}\\)|ß()|g\'', 'Removing Edition in the Footer'),
+        # Remove Version in the Footer
+        ('\'s|\\({target:"_blank",id:"version",.*CHANGELOG.md":void 0}\\)|()|g\'', 'Removing Version in the Footer'),
+        # Remove "New Version is available" in the Footer
+        ('\'s|\\({target:"_blank",id:"updateVersion",.*grafana_footer"}\\)|()|g\'', 'Removing "New Version is available" in the Footer'),
+        # Remove News icon
+        ('\'s|..createElement(....,{className:.,onClick:.,iconOnly:!0,icon:"rss","aria-label":"News"})|null|g\'', 'Removing News icon'),
     ]
     
-    for command in commands:
+    for replacement, description in replacements:
+        print(description)
+        command = f'{base_command} {replacement} {{}} \\;'
         run_command(command)
     
     print("Container modified.")
