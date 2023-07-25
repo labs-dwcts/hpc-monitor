@@ -2,6 +2,9 @@
 
 고성능 컴퓨팅(High-Performance Computing, HPC) 환경에서 NVIDIA GPU를 사용하고 모니터링하기 위한 도구 입니다.
 
+# Architecture
+![architecture drawio](https://github.com/labs-dwcts/docs/assets/113492989/775c22fc-329b-4b01-84cf-bfd45055f055)
+
 ## **설치 요구사항**
 
 - NVIDIA GPU가 설치된 Ubuntu 시스템
