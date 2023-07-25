@@ -88,6 +88,7 @@ services:
     volumes:
       - grafana_data:/var/lib/grafana
       - ./grafana/provisioning:/etc/grafana/provisioning
+      - ./grafana/provisioning/img/grafana_icon.svg:/usr/share/grafana/public/img/grafana_icon.svg:rw
     restart: unless-stopped
     ports:
       - 3000:3000
