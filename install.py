@@ -185,19 +185,20 @@ def replace_endpoint_in_env(file_path, ip):
 def modify_grafana_container():
     print("Modifying container...")
     
-    replacements = [
-        ('AppTitle="Grafana"', 'AppTitle="DACOMSYSTEM"'),
-        ('LoginTitle="Welcome to Grafana"', 'LoginTitle="Welcome to DACOMSYSTEM"'),
-        ('[{target:"_blank",id:"documentation".*grafana_footer"}]', '[]'),
-        ('({target:"_blank",id:"license",.*licenseUrl})', '()'),
-        ('({target:"_blank",id:"version",.*CHANGELOG.md":void 0})', '()'),
-        ('({target:"_blank",id:"updateVersion",.*grafana_footer"})', '()'),
-        ('..createElement(....,{className:.,onClick:.,iconOnly:!0,icon:"rss","aria-label":"News"})', 'null'),
+    commands = [
+        'docker exec -it -u 0 grafana find /usr/share/grafana/public/build/ -name "*.js" -exec sed -i \'s|AppTitle="Grafana"|AppTitle="DACOMSYSTEM"|g\' {} \;',
+        'docker exec -it -u 0 grafana find /usr/share/grafana/public/build/ -name "*.js" -exec sed -i \'s|LoginTitle="Welcome to Grafana"|LoginTitle="Welcome to DACOMSYSTEM"|g\' {} \;',
+        'docker exec -it -u 0 grafana find /usr/share/grafana/public/build/ -name "*.js" -exec sed -i \'s|\[{target:"_blank",id:"documentation".*grafana_footer"}\]|\[\]|g\' {} \;',
+        'docker exec -it -u 0 grafana find /usr/share/grafana/public/build/ -name "*.js" -exec sed -i \'s|({target:"_blank",id:"license",.*licenseUrl})|()|g\' {} \;',
+        'docker exec -it -u 0 grafana find /usr/share/grafana/public/build/ -name "*.js" -exec sed -i \'s|({target:"_blank",id:"version",.*CHANGELOG.md":void 0})|()|g\' {} \;',
+        'docker exec -it -u 0 grafana find /usr/share/grafana/public/build/ -name "*.js" -exec sed -i \'s|({target:"_blank",id:"updateVersion",.*grafana_footer"})|()|g\' {} \;',
+        'docker exec -it -u 0 grafana find /usr/share/grafana/public/build/ -name "*.js" -exec sed -i \'s|..createElement(....,{className:.,onClick:.,iconOnly:!0,icon:"rss","aria-label":"News"})|null|g\' {} \;'
     ]
     
-    for old, new in replacements:
-        command = f'docker exec -it -u 0 grafana find /usr/share/grafana/public/build/ -name "*.js" -exec sed -i \'s|{old}|{new}|g\' {{}} \\;'
+    for command in commands:
         run_command(command)
+    
+    print("Container modified.")
     
     print("Container modified.")
 
