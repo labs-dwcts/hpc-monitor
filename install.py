@@ -259,7 +259,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='HPC NVIDIA GPU Monitoring Setup')
     parser.add_argument('--driver-version', type=str, default='535.54.03', help='NVIDIA driver version (default: 535.54.03)')
     parser.add_argument('--server-ip', type=str, default='localhost', help='Server IP (default: localhost)')
-    parser.add_argument('--client-ip', type=str, help='Client IP') # This option will be supported in Version 2.0
+    parser.add_argument('--client-ip', type=str, help='Client IP (This option will be supported in Version 2.0)') # This option will be supported in Version 2.0
     parser.add_argument('--uninstall', action='store_true', help='Uninstall the containers')
     args = parser.parse_args()
     main(args.server_ip, args.client_ip, args.driver_version, args.uninstall)
