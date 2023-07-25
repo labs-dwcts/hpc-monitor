@@ -199,8 +199,6 @@ def modify_grafana_container():
         run_command(command)
     
     print("Container modified.")
-    
-    print("Container modified.")
 
 def main(server_ip, client_ip, driver_version, uninstall):
     try:
