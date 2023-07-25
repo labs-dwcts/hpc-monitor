@@ -89,7 +89,7 @@ services:
       - grafana_data:/var/lib/grafana
       - ./grafana/provisioning:/etc/grafana/provisioning
       - ./grafana/provisioning/img/grafana_icon.svg:/usr/share/grafana/public/img/grafana_icon.svg:rw
-      - ./grafana/provisioning:/etc/grafana/provisioning/dashboards/node-v1.json:/usr/share/grafana/public/dashboards/default.json:rw
+      - ./grafana/provisioning/dashboards/node-v1.json:/usr/share/grafana/public/dashboards/default.json:rw
     restart: unless-stopped
     ports:
       - 3000:3000
