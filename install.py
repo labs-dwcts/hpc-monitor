@@ -1,5 +1,5 @@
 # Author: labs-dwcts
-# Version: 0.9.8
+# Version: 0.9.9
 # Python : 3.8.10
 # Date: 2023-07-17
 # Description: HPC NVIDIA GPU Monitoring Setup
