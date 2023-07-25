@@ -185,19 +185,23 @@ def replace_endpoint_in_env(file_path, ip):
 def modify_grafana_container():
     print("Modifying Container...")
     
-    commands = [
-        'docker exec -u 0 grafana find /usr/share/grafana/public/build/ -name "*.js" -exec sed -i \'s|AppTitle="Grafana"|AppTitle="DACOMSYSTEM"|g\' {} \;',
-        'docker exec -u 0 grafana find /usr/share/grafana/public/build/ -name "*.js" -exec sed -i \'s|LoginTitle="Welcome to Grafana"|LoginTitle="Welcome to DACOMSYSTEM"|g\' {} \;',
-        'docker exec -u 0 grafana find /usr/share/grafana/public/build/ -name "*.js" -exec sed -i \'s|\[{target:"_blank",id:"documentation".*grafana_footer"}\]|\[\]|g\' {} \;',
-        'docker exec -u 0 grafana find /usr/share/grafana/public/build/ -name "*.js" -exec sed -i \'s|({target:"_blank",id:"license",.*licenseUrl})|()|g\' {} \;',
-        'docker exec -u 0 grafana find /usr/share/grafana/public/build/ -name "*.js" -exec sed -i \'s|({target:"_blank",id:"version",.*CHANGELOG.md":void 0})|()|g\' {} \;',
-        'docker exec -u 0 grafana find /usr/share/grafana/public/build/ -name "*.js" -exec sed -i \'s|({target:"_blank",id:"updateVersion",.*grafana_footer"})|()|g\' {} \;',
-        'docker exec -u 0 grafana find /usr/share/grafana/public/build/ -name "*.js" -exec sed -i \'s|..createElement(....,{className:.,onClick:.,iconOnly:!0,icon:"rss","aria-label":"News"})|null|g\' {} \;'
-    ]
-    for command in commands:
+    base_command = 'docker exec -u 0 grafana find /usr/share/grafana/public/build/ -name "*.js" -exec sed -i'
+    replacements = {
+        'AppTitle="Grafana"': 'AppTitle="PHANTOM"',
+        'LoginTitle="Welcome to Grafana"': 'LoginTitle="Welcome to PHANTOM"',
+        '\\[{target:"_blank",id:"documentation".*grafana_footer"}\\]': '[]',
+        '({target:"_blank",id:"license",.*licenseUrl})': '()',
+        '({target:"_blank",id:"version",.*CHANGELOG.md":void 0})': '()',
+        '({target:"_blank",id:"updateVersion",.*grafana_footer"})': '()',
+        '..createElement(....,{className:.,onClick:.,iconOnly:!0,icon:"rss","aria-label":"News"})': 'null'
+    }
+
+    for original, replacement in replacements.items():
+        command = f"{base_command} 's|{original}|{replacement}|g' {{}} \\;"
         run_command(command)
 
     print("Container modified.")
+
 
 def main(server_ip, client_ip, driver_version, uninstall):
     try:
