@@ -16,7 +16,7 @@
 1. 이 저장소를 복제 합니다.
 
 ```bash
-git clone https://github.com/your_username/hpc-monitor.git
+git clone https://github.com/labs-dwcts/hpc-monitor.git
 ```
 
 설치전 이메일 알림이 필요하다면 `/compose/.env`의 환경설정 파일을 열고 SMTP 서버, 이메일 주소, 비밀번호를 설정해야 합니다.
