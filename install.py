@@ -199,7 +199,7 @@ def modify_grafana_container():
         command = f'docker exec -it -u 0 grafana find /usr/share/grafana/public/build/ -name "*.js" -exec sed -i \'s|{old}|{new}|g\' {{}} \\;'
         run_command(command)
     
-    print("Grafana container modified.")
+    print("Container modified.")
 
 def main(server_ip, client_ip, driver_version, uninstall):
     try:
