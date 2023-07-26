@@ -182,6 +182,6 @@ groups:
           annotations:
             __dashboardUid__: rYdddlPWk
             __panelId__: "77"
-            description: CPU 온도가 85도 이상 입니다.
-            summary: CPU 온도 알림
+            description: GPU 온도가 85도 이상 입니다.
+            summary: GPU 온도 알림
           isPaused: false
