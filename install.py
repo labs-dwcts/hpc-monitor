@@ -202,7 +202,6 @@ def modify_grafana_container():
 
     print("Container modified.")
 
-
 def main(server_ip, client_ip, driver_version, uninstall):
     try:
         check_if_root()
