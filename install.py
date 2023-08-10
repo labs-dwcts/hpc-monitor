@@ -144,9 +144,11 @@ def complete_message():
     print(docker_ps_output)
     print("\n----------------------------------------------------------------------\n"
           "Add your user to the docker group.\n"
-          "Run 'sudo usermod -aG docker $USER'\n"
+          "Run\n"
+          "$ sudo usermod -aG docker $USER'\n"
           "Log out and log back in so that your group membership is re-evaluated.\n"
-          "Run 'newgrp docker'\n"
+          "Run\n"
+          "$ newgrp docker\n"
           "----------------------------------------------------------------------\n\n"
           "----------------------------------------------------------------------\n"
           "Stress Test\n"
