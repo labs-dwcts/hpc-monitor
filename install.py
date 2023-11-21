@@ -77,9 +77,9 @@ def check_x_window():
 def install_nvidia_driver(version):
     print("Installing NVIDIA driver...")
     if check_x_window():
-        run_command(f'sudo sh NVIDIA-Linux-x86_64-{version}.run --silent')
+        run_command(f'sudo sh NVIDIA-Linux-x86_64-{version}.run --dkms --silent')
     else:
-        run_command(f'sudo sh NVIDIA-Linux-x86_64-{version}.run --silent --no-x-check')
+        run_command(f'sudo sh NVIDIA-Linux-x86_64-{version}.run --dkms --silent --no-x-check')
     print("NVIDIA driver installed.")
 
 def configure_docker_repository():
